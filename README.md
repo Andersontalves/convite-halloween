@@ -51,23 +51,24 @@ Você pode alterar livremente:
 
 Para que seus convidados possam acessar o site pelo celular ou computador, utilize um serviço de hospedagem estática gratuita. As duas opções recomendadas e 100% gratuitas são **GitHub Pages** e **Cloudflare Pages**.
 
-### Opção 1: GitHub Pages (Mais Popular e Simples)
+### Opção 1: GitHub Pages (Recomendado para @Andersontalves)
 
-1. **Crie uma conta gratuita** no [GitHub](https://github.com) (se ainda não tiver).
-2. **Crie um novo repositório:**
-   - Nomeie como, por exemplo: `halloween-anderson-39`.
-   - Marque o repositório como **Público (Public)**.
-3. **Envie os arquivos do projeto:**
-   - Faça upload de todo o conteúdo da pasta (`index.html`, `css/`, `js/`, `assets/`, etc.) diretamente pelo navegador ou via Git (`git push`).
-4. **Ative o GitHub Pages:**
-   - No repositório, clique na aba **Settings** (Configurações).
-   - No menu lateral esquerdo, clique em **Pages**.
-   - Em **Build and deployment > Branch**, selecione a branch `main` (ou `master`) e a pasta `/ (root)`.
+1. Acesse **[github.com/new](https://github.com/new)** e crie um novo repositório com o nome:
+   `convite-halloween`
+2. No seu terminal (ou PowerShell na pasta do projeto), adicione o repositório remoto e envie os arquivos já preparados:
+   ```bash
+   git remote add origin https://github.com/Andersontalves/convite-halloween.git
+   git push -u origin main
+   ```
+3. **Ative o GitHub Pages:**
+   - No seu repositório `https://github.com/Andersontalves/convite-halloween`, clique em **Settings** (Configurações).
+   - No menu à esquerda, clique em **Pages**.
+   - Em **Build and deployment > Branch**, selecione `main` e a pasta `/ (root)`.
    - Clique em **Save**.
-5. **Obtenha o Link Público:**
-   - Em cerca de 1 a 2 minutos, o GitHub exibirá o link no topo:
-     `https://seu-usuario.github.io/halloween-anderson-39/`
-   - Este é o link oficial para enviar aos convidados!
+4. **Pronto! Seu link oficial público será:**
+   `https://andersontalves.github.io/convite-halloween/`
+   
+> **Nota:** As meta tags do WhatsApp e o `config.js` já foram configurados com essa URL exata para garantir que a arte de prévia apareça perfeitamente ao compartilhar no WhatsApp!
 
 ---
 
