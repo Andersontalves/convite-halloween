@@ -533,6 +533,18 @@ body {
   font-weight: 900;
 }
 
+.detail-value.highlight-costume {
+  color: #7f1d1d;
+  font-weight: 900;
+  text-shadow: 0 0 1px rgba(127, 29, 29, 0.3);
+}
+
+.highlight-costume-row {
+  background: rgba(127, 29, 29, 0.06);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
 .detail-value.phone-link {
   color: #1e3a8a;
   text-decoration: none;

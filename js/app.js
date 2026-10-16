@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setText('detailDateText', data.data);
     setText('detailTimeText', data.hora);
     setText('detailLocationText', data.local);
+    setText('detailCostumeText', data.traje);
     setText('detailDeadlineText', data.prazoConfirmacao);
     setText('detailPhoneText', data.telefoneExibicao);
     setText('crumpledNoteText', data.observacao);

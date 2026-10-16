@@ -19,6 +19,7 @@ const HALLOWEEN_CONFIG = {
   data: "31 de outubro",
   hora: "20h",
   local: "R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP",
+  traje: "A caráter (Fantasia obrigatória!) 🧛‍♂️🧙‍♀️",
   prazoConfirmacao: "28/10",
   telefoneExibicao: "(15) 99669-6096",
   
