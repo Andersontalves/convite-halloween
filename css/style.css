@@ -1,0 +1,936 @@
+/* ==========================================================================
+   CONVITE DE HALLOWEEN - ANDERSON 39 ANOS
+   Design System & Estilos Cinematográficos de Terror Psicológico
+   ========================================================================== */
+
+/* Importação de Fontes do Google */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Creepster&family=MedievalSharp&family=Montserrat:wght@400;600;700;800&family=Nosifer&display=swap');
+
+:root {
+  /* Paleta de Cores Sombria & Encantada */
+  --bg-deep-black: #060309;
+  --bg-forest-dark: #0a0614;
+  --purple-fog: #6b21a8;
+  --purple-mist-glow: rgba(147, 51, 234, 0.45);
+  --purple-deep: #240b36;
+  --purple-royal: #7e22ce;
+  
+  --orange-pumpkin: #ff7800;
+  --orange-glow: rgba(255, 120, 0, 0.65);
+  --orange-fire: #ea580c;
+  --orange-amber: #f59e0b;
+  
+  --ink-black: #140d07;
+  --ink-brown: #331d0d;
+  --blood-crimson: #881337;
+  --blood-red: #991b1b;
+  
+  --parchment-gold: #d4a373;
+  --parchment-light: #fefae0;
+  --paper-note-bg: #f5eedc;
+  --paper-note-border: #8c6d48;
+
+  --whatsapp-green: #25d366;
+  --whatsapp-glow: rgba(37, 211, 102, 0.4);
+
+  --font-title-gothic: 'Cinzel Decorative', 'MedievalSharp', serif;
+  --font-horror: 'Creepster', cursive;
+  --font-parchment: 'MedievalSharp', cursive, serif;
+  --font-ui: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset Universal & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--bg-deep-black);
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--bg-deep-black);
+  color: #e2e8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CENÁRIO DE FUNDO: FLORESTA ASSOMBRADA ANIMADA
+   ========================================================================== */
+.background-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.haunted-forest-bg {
+  position: absolute;
+  inset: -20px;
+  background: url('../assets/images/haunted_forest_bg.jpg') center center / cover no-repeat;
+  filter: brightness(0.65) contrast(1.18) saturate(1.25);
+  transform: scale(1.02);
+  transition: transform 12s ease-out;
+  animation: subtleBreathing 18s ease-in-out infinite alternate;
+}
+
+@keyframes subtleBreathing {
+  0% { transform: scale(1.02) translateY(0); filter: brightness(0.62) saturate(1.2); }
+  50% { transform: scale(1.05) translateY(-8px); filter: brightness(0.72) saturate(1.35); }
+  100% { transform: scale(1.03) translateY(-4px); filter: brightness(0.65) saturate(1.25); }
+}
+
+/* Camada de Névoa Roxa em Movimento */
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 80%, rgba(107, 33, 168, 0.38) 0%, rgba(36, 11, 54, 0.6) 50%, rgba(6, 3, 9, 0.85) 90%);
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+}
+
+.mist-particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+
+/* Vinheta de Terror Cinematográfico */
+.vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(6, 3, 9, 0.1) 40%, rgba(6, 3, 9, 0.75) 80%, rgba(2, 1, 4, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BARRA SUPERIOR DE CONTROLES
+   ========================================================================== */
+.top-controls-bar {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-btn {
+  background: rgba(18, 10, 30, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #f3e8ff;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(147, 51, 234, 0.2);
+}
+
+.control-btn:hover, .control-btn:focus-visible {
+  background: rgba(45, 18, 77, 0.9);
+  border-color: var(--orange-pumpkin);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 120, 0, 0.35);
+  outline: none;
+}
+
+.audio-icon-pulse {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.control-btn.active .audio-icon-pulse {
+  animation: pulseIcon 1.5s infinite;
+  color: var(--orange-pumpkin);
+}
+
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); filter: drop-shadow(0 0 6px var(--orange-pumpkin)); }
+}
+
+/* ==========================================================================
+   SEÇÃO 1: INTRODUÇÃO CINEMATOGRÁFICA
+   ========================================================================== */
+.intro-section {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+}
+
+.intro-section.hidden-intro {
+  opacity: 0;
+  display: none !important;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.intro-pumpkin-container {
+  width: 190px;
+  height: 190px;
+  margin-bottom: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-pumpkin-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 72%);
+  filter: drop-shadow(0 0 25px rgba(255, 120, 0, 0.85)) drop-shadow(0 0 50px rgba(147, 51, 234, 0.6));
+  animation: evilPumpkinHover 4s ease-in-out infinite alternate;
+}
+
+@keyframes evilPumpkinHover {
+  0% { transform: translateY(0) rotate(-1deg); filter: drop-shadow(0 0 20px rgba(255, 120, 0, 0.7)); }
+  50% { transform: translateY(-10px) rotate(2deg); filter: drop-shadow(0 0 35px rgba(255, 120, 0, 0.95)) drop-shadow(0 0 50px rgba(168, 85, 247, 0.6)); }
+  100% { transform: translateY(0) rotate(-1deg); filter: drop-shadow(0 0 20px rgba(255, 120, 0, 0.7)); }
+}
+
+.intro-badge {
+  display: inline-block;
+  font-family: var(--font-title-gothic);
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange-amber);
+  background: rgba(26, 11, 46, 0.7);
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+  margin-bottom: 18px;
+  animation: badgeFlicker 3s infinite alternate;
+}
+
+@keyframes badgeFlicker {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.7; }
+  70% { opacity: 1; filter: drop-shadow(0 0 8px var(--orange-amber)); }
+}
+
+.intro-title {
+  font-family: var(--font-title-gothic);
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 0%, #ffedd5 30%, var(--orange-pumpkin) 70%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(255, 120, 0, 0.45));
+}
+
+.intro-question {
+  font-family: var(--font-parchment);
+  font-size: clamp(1.25rem, 3vw, 1.85rem);
+  color: #e9d5ff;
+  max-width: 650px;
+  margin: 0 auto 36px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(168, 85, 247, 0.6);
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+/* Botão REVELAR O CONVITE */
+.reveal-btn {
+  position: relative;
+  font-family: var(--font-title-gothic);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #fff;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #7e22ce 0%, #9333ea 40%, #ea580c 100%);
+  border: 2px solid rgba(255, 165, 0, 0.7);
+  border-radius: 50px;
+  padding: 18px 46px;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(234, 88, 12, 0.5), 0 0 50px rgba(147, 51, 234, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.2);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.reveal-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.reveal-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 45px rgba(255, 120, 0, 0.8), 0 0 70px rgba(168, 85, 247, 0.65);
+  border-color: #ffaa00;
+}
+
+.reveal-btn:hover::before {
+  opacity: 1;
+}
+
+.reveal-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-icon-bats {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   SEÇÃO 2: REVELAÇÃO DO CONVITE (PERGAMINHO & MAPA)
+   ========================================================================== */
+.invitation-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 18px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.invitation-container.collapsed {
+  display: none;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.invitation-container.revealed {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  animation: scrollDescend 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scrollDescend {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(50px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* O Pergaminho Antigo com Bordas Queimadas */
+.parchment-scroll-card {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  background-color: #e9dac4;
+  background-image: 
+    linear-gradient(rgba(240, 222, 190, 0.88), rgba(220, 195, 155, 0.94)),
+    url('../assets/images/parchment_scroll.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  padding: 56px 44px 44px;
+  color: var(--ink-black);
+  box-shadow: 
+    0 15px 45px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(255, 120, 0, 0.25),
+    0 0 70px rgba(107, 33, 168, 0.35);
+  border: 4px double #5c381c;
+  outline: 1px solid rgba(255, 200, 100, 0.2);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Moldura gótica de cantos queimados */
+.parchment-scroll-card::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 2px dashed rgba(60, 30, 10, 0.6);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+/* Topo do Pergaminho com Abóbora e Título */
+.scroll-header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.scroll-pumpkin-badge {
+  width: 95px;
+  height: 95px;
+  margin: 0 auto -6px;
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-pumpkin-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 45%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 50%, black 45%, transparent 72%);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(234, 88, 12, 0.5));
+}
+
+.scroll-subheading {
+  font-family: var(--font-title-gothic);
+  font-size: 1.15rem;
+  letter-spacing: 3px;
+  color: #7f1d1d;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.scroll-main-title {
+  font-family: var(--font-horror);
+  font-size: clamp(2.8rem, 6.5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: 2px;
+  background: linear-gradient(180deg, #b91c1c 0%, #4c0519 65%, #180309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 2px rgba(255, 230, 180, 0.8)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+  margin: 4px 0 8px;
+}
+
+.scroll-author-title {
+  font-family: var(--font-title-gothic);
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  font-weight: 900;
+  color: #3b0764;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.scroll-tagline {
+  font-family: var(--font-parchment);
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  font-style: italic;
+  font-weight: 700;
+  color: #431407;
+  max-width: 580px;
+  margin: 0 auto 20px;
+  line-height: 1.4;
+  border-top: 1px solid rgba(80, 40, 10, 0.25);
+  border-bottom: 1px solid rgba(80, 40, 10, 0.25);
+  padding: 10px 14px;
+}
+
+/* Divisor Gótico */
+.scroll-gothic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px auto 26px;
+  color: #831843;
+}
+
+.scroll-gothic-divider span {
+  font-size: 1.2rem;
+}
+
+.scroll-gothic-divider::before,
+.scroll-gothic-divider::after {
+  content: '';
+  height: 2px;
+  width: 90px;
+  background: linear-gradient(to right, transparent, #831843, transparent);
+}
+
+/* Lista / Grid dos Dados Oficiais */
+.party-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-parchment);
+  font-size: clamp(1.1rem, 2.7vw, 1.35rem);
+  color: var(--ink-black);
+  border-bottom: 1px dashed rgba(80, 40, 10, 0.2);
+  padding-bottom: 10px;
+}
+
+.detail-label {
+  font-family: var(--font-title-gothic);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  font-weight: 900;
+  color: #7f1d1d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-value {
+  font-weight: 700;
+  color: #1c1917;
+  flex-grow: 1;
+}
+
+.detail-value.highlight-deadline {
+  color: #991b1b;
+  font-weight: 900;
+}
+
+.detail-value.phone-link {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.detail-value.phone-link:hover {
+  color: var(--blood-red);
+  text-decoration: underline;
+}
+
+/* Seção de Confirmação WhatsApp */
+.whatsapp-rsvp-box {
+  margin: 28px 0 24px;
+  text-align: center;
+  padding: 22px 18px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 14px;
+  border: 1px solid rgba(80, 40, 10, 0.2);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.whatsapp-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+  color: #ffffff;
+  font-family: var(--font-ui);
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 18px 36px;
+  border-radius: 50px;
+  border: 2px solid #86efac;
+  box-shadow: 0 6px 20px var(--whatsapp-glow), 0 0 15px rgba(34, 197, 94, 0.35);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.whatsapp-cta-button:hover,
+.whatsapp-cta-button:focus-visible {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
+  border-color: #ffffff;
+  outline: none;
+}
+
+.whatsapp-icon-svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.whatsapp-subtext {
+  font-size: 0.88rem;
+  font-family: var(--font-ui);
+  color: #57534e;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Bilhete Amassado com a Observação */
+.crumpled-note-wrapper {
+  position: relative;
+  margin-top: 32px;
+  padding-top: 18px;
+}
+
+.crumpled-paper-note {
+  background: var(--paper-note-bg);
+  background-image: radial-gradient(circle at 50% 50%, #fffdf8 0%, #f1e4c9 100%);
+  border: 1px dashed var(--paper-note-border);
+  border-radius: 4px;
+  padding: 16px 20px;
+  color: #291807;
+  font-family: var(--font-parchment);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: transform 0.3s ease;
+}
+
+.crumpled-paper-note:hover {
+  transform: rotate(0deg) scale(1.01);
+}
+
+.crumpled-paper-note::before {
+  content: '📌';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.crumpled-flair-skulls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   SEÇÃO 3: MAPA INTERATIVO & ACESSO À ROTA
+   ========================================================================== */
+.map-section {
+  width: 100%;
+  max-width: 780px;
+  background: rgba(14, 8, 24, 0.88);
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(147, 51, 234, 0.4);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(107, 33, 168, 0.3),
+    0 0 25px rgba(255, 120, 0, 0.15);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.map-header {
+  margin-bottom: 20px;
+}
+
+.map-title {
+  font-family: var(--font-title-gothic);
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  font-weight: 900;
+  color: #fed7aa;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.map-address-box {
+  background: rgba(27, 14, 46, 0.65);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px auto 22px;
+  font-family: var(--font-ui);
+  font-size: 0.96rem;
+  color: #f1f5f9;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 650px;
+}
+
+.copy-address-btn {
+  background: rgba(147, 51, 234, 0.3);
+  border: 1px solid rgba(192, 132, 252, 0.5);
+  color: #f3e8ff;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+.copy-address-btn:hover {
+  background: var(--purple-royal);
+  color: #fff;
+}
+
+/* Container do Iframe do Mapa */
+.map-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+  margin-bottom: 22px;
+  background: #0f071a;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  filter: contrast(1.05) brightness(0.9);
+}
+
+/* Fallback se o iframe não carregar */
+.map-fallback-msg {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #140b20;
+  padding: 20px;
+  color: #d8b4fe;
+  z-index: 1;
+}
+
+/* Botões de Ação de Rota */
+.map-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.route-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.route-btn-primary {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  color: #fff;
+  border: 1px solid #fdba74;
+  box-shadow: 0 4px 18px rgba(234, 88, 12, 0.4);
+}
+
+.route-btn-primary:hover {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(249, 115, 22, 0.6);
+}
+
+.route-btn-secondary {
+  background: rgba(30, 20, 50, 0.85);
+  color: #e9d5ff;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.route-btn-secondary:hover {
+  background: rgba(60, 30, 95, 0.95);
+  color: #fff;
+  border-color: #c084fc;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RODAPÉ SUTIL
+   ========================================================================== */
+.site-footer {
+  width: 100%;
+  max-width: 780px;
+  margin-top: 35px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #a855f7;
+  opacity: 0.8;
+  font-family: var(--font-parchment);
+}
+
+/* ==========================================================================
+   LEGENDA DOS SUSSURROS HUMANOS (VISUAL)
+   ========================================================================== */
+.whisper-subtitle-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(10, 4, 18, 0.92);
+  border: 1px solid rgba(147, 51, 234, 0.6);
+  border-radius: 999px;
+  padding: 8px 24px;
+  color: #f3e8ff;
+  font-family: var(--font-parchment);
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 0 25px rgba(107, 33, 168, 0.6), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.whisper-subtitle-toast.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   ACONTROLES DE ACESSIBILIDADE E MODO REDUZIDO
+   ========================================================================== */
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (CELULARES & TELAS MENORES)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .top-controls-bar {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .control-btn {
+    padding: 6px 10px;
+    font-size: 0.74rem;
+  }
+
+  .intro-pumpkin-container {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 16px;
+  }
+
+  .reveal-btn {
+    padding: 15px 32px;
+    font-size: 1.05rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .parchment-scroll-card {
+    padding: 40px 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  .scroll-pumpkin-badge {
+    width: 70px;
+    height: 70px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .whatsapp-cta-button {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.05rem;
+  }
+
+  .map-section {
+    padding: 24px 14px;
+  }
+
+  .map-iframe-wrapper {
+    height: 300px;
+  }
+
+  .route-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

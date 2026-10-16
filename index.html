@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite de Halloween — Anderson 39 Anos</title>
+  
+  <!-- SEO & Meta Tags Básicas -->
+  <meta name="description" content="Você foi convidado. Terá coragem de abrir? Venha comemorar os 39 anos do Anderson na festa mais aterrorizante do ano!">
+  <meta name="author" content="Anderson">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#060309">
+
+  <!-- Open Graph / WhatsApp / Facebook / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Convite de Halloween — Anderson 39 Anos">
+  <meta property="og:description" content="Você foi convidado. Terá coragem de abrir?">
+  <meta property="og:url" content="https://andersontalves.github.io/convite-halloween/">
+  <meta property="og:image" content="https://andersontalves.github.io/convite-halloween/assets/images/og_share_preview.jpg">
+  <meta property="og:image:secure_url" content="https://andersontalves.github.io/convite-halloween/assets/images/og_share_preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Floresta assombrada com abóboras luminosas e convite do Halloween do Anderson">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="canonical" href="https://andersontalves.github.io/convite-halloween/">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Convite de Halloween — Anderson 39 Anos">
+  <meta name="twitter:description" content="Você foi convidado. Terá coragem de abrir?">
+  <meta name="twitter:image" content="https://andersontalves.github.io/convite-halloween/assets/images/og_share_preview.jpg">
+
+  <!-- Favicon de Abóbora de Halloween -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎃</text></svg>">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cenário de Fundo: Floresta Assombrada Animada -->
+  <div class="background-wrapper" aria-hidden="true">
+    <div class="haunted-forest-bg"></div>
+    <div class="fog-layer"></div>
+    <canvas id="mistCanvas" class="mist-particle-canvas"></canvas>
+    <div class="vignette-overlay"></div>
+  </div>
+
+  <!-- Barra Superior de Controles e Acessibilidade -->
+  <header class="top-controls-bar" role="toolbar" aria-label="Controles do site">
+    <button id="audioToggleBtn" class="control-btn" type="button" aria-label="Ativar áudio do ambiente de terror">
+      <span>🔇</span> Áudio: Mudo
+    </button>
+    <button id="motionToggleBtn" class="control-btn" type="button" aria-label="Alternar redução de movimento">
+      <span>🦇</span> Animações: Normais
+    </button>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- SEÇÃO 1: INTRODUÇÃO CINEMATOGRÁFICA -->
+    <section id="introSection" class="intro-section" aria-label="Introdução do Convite">
+      <div class="intro-pumpkin-container">
+        <img src="assets/images/pumpkin_witch_hat.jpg" alt="Abóbora sinistra com chapéu de bruxa" class="intro-pumpkin-img" width="170" height="170">
+      </div>
+
+      <div class="intro-badge">31 DE OUTUBRO • 20H</div>
+
+      <h1 class="intro-title">FEsta de HALLOWEEN aniversario ANDERSON</h1>
+
+      <p id="introQuestionText" class="intro-question">
+        “Você foi convidado. Terá coragem de abrir?”
+      </p>
+
+      <button id="revealBtn" class="reveal-btn" type="button" aria-haspopup="true">
+        <span class="btn-icon-bats">🦇</span>
+        <span id="revealBtnText">REVELAR O CONVITE</span>
+      </button>
+    </section>
+
+    <!-- SEÇÃO 2: APRESENTAÇÃO DO CONVITE (PERGAMINHO & MAPA) -->
+    <div id="invitationContainer" class="invitation-container collapsed" aria-live="polite">
+
+      <!-- O PERGAMINHO ANTIGO COM BORDAS QUEIMADAS -->
+      <article class="parchment-scroll-card" aria-label="Pergaminho Oficial do Convite">
+        
+        <!-- Topo do Pergaminho -->
+        <header class="scroll-header">
+          <div class="scroll-pumpkin-badge">
+            <img src="assets/images/pumpkin_witch_hat.jpg" alt="Selo da abóbora de Halloween" width="90" height="90">
+          </div>
+          <p id="scrollSubheadingText" class="scroll-subheading">Festa de 39 Anos</p>
+          <h2 id="scrollMainTitleText" class="scroll-main-title">HALLOWEEN</h2>
+          <p id="scrollAuthorText" class="scroll-author-title">do Anderson</p>
+          <p id="scrollTaglineText" class="scroll-tagline">
+            “Você está convidado para a festa mais aterrorizante do ANO!”
+          </p>
+        </header>
+
+        <div class="scroll-gothic-divider" aria-hidden="true">
+          <span>☠️</span>
+        </div>
+
+        <!-- Grid de Detalhes Oficiais da Festa -->
+        <div class="party-details-grid">
+          
+          <div class="detail-row">
+            <span class="detail-label"><span>📅</span> DATA:</span>
+            <span id="detailDateText" class="detail-value">31 de outubro</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label"><span>⏰</span> HORA:</span>
+            <span id="detailTimeText" class="detail-value">20h</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label"><span>📍</span> LOCAL:</span>
+            <span id="detailLocationText" class="detail-value">R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label"><span>⏳</span> CONFIRMAR ATÉ O DIA:</span>
+            <span id="detailDeadlineText" class="detail-value highlight-deadline">28/10</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label"><span>📞</span> TELEFONE:</span>
+            <a id="detailPhoneText" href="tel:+5515996696096" class="detail-value phone-link">(15) 99669-6096</a>
+          </div>
+
+        </div>
+
+        <!-- Confirmação de Presença via WhatsApp -->
+        <div class="whatsapp-rsvp-box">
+          <a id="whatsappRsvpBtn" href="#" class="whatsapp-cta-button" target="_blank" rel="noopener noreferrer">
+            <svg class="whatsapp-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.031 2C6.495 2 2 6.495 2 12.031c0 1.99.585 3.844 1.597 5.412L2 22l4.707-1.545c1.516.906 3.275 1.417 5.163 1.417 5.536 0 10.031-4.495 10.031-10.031C21.901 6.337 17.567 2 12.031 2zm5.836 14.199c-.244.688-1.42 1.326-1.954 1.365-.534.039-1.229.052-3.527-.852-2.753-1.084-4.524-3.882-4.66-4.064-.136-.182-1.111-1.48-1.111-2.822 0-1.342.7-2.002.95-2.274.248-.273.543-.341.724-.341.181 0 .363.003.521.011.168.008.394-.064.615.47.227.545.772 1.884.84 2.02.068.136.113.295.023.477-.091.182-.136.295-.272.454-.136.159-.286.355-.409.477-.136.136-.278.284-.12.556.159.273.704 1.163 1.51 1.882 1.037.925 1.912 1.212 2.185 1.348.272.136.431.113.59-.068.159-.182.68-0.795.862-1.068.181-.273.363-.227.612-.136.25.091 1.587.749 1.859.885.272.136.454.204.521.318.069.113.069.658-.175 1.346z"/>
+            </svg>
+            <span id="whatsappBtnText">CONFIRMAR PRESENÇA</span>
+          </a>
+          <p class="whatsapp-subtext">
+            Clique para enviar sua confirmação ao aniversariante via WhatsApp.
+          </p>
+        </div>
+
+        <!-- Bilhete Amassado com a Observação Informal -->
+        <div class="crumpled-note-wrapper">
+          <div class="crumpled-paper-note">
+            <p id="crumpledNoteText">
+              “Obs: Vai ter som e karaoke pra vc se assustar a noite inteira huahuahuahuahuahua”
+            </p>
+            <div class="crumpled-flair-skulls" aria-hidden="true">
+              <span>💀</span>
+              <span>🎤 👻</span>
+              <span>🎃</span>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- SEÇÃO 3: MAPA INTERATIVO ABAIXO DO CONVITE -->
+      <section class="map-section" aria-labelledby="mapHeading">
+        <div class="map-header">
+          <h3 id="mapHeading" class="map-title">
+            <span>🗺️</span> LOCALIZAÇÃO DO TERROR
+          </h3>
+          <p class="map-subtitle">Veja como chegar ao local da festa assombrada:</p>
+        </div>
+
+        <div class="map-address-box">
+          <span>📍 <strong>R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP</strong></span>
+          <button id="copyAddressBtn" class="copy-address-btn" type="button" aria-label="Copiar endereço para área de transferência">
+            📋 Copiar Endereço
+          </button>
+        </div>
+
+        <!-- Iframe do Mapa (Google Maps Embed) -->
+        <div class="map-iframe-wrapper">
+          <iframe 
+            id="mapIframe"
+            class="map-iframe"
+            title="Localização da Festa no Google Maps"
+            src="https://maps.google.com/maps?q=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+          <div id="mapFallback" class="map-fallback-msg">
+            <p>Não foi possível carregar o mapa interativo diretamente.</p>
+            <p>Utilize os botões abaixo para abrir a rota em seu aplicativo de mapas.</p>
+          </div>
+        </div>
+
+        <!-- Botões de Ação de Rota -->
+        <div class="map-action-buttons">
+          <a id="gmapsRouteBtn" href="https://www.google.com/maps/dir/?api=1&destination=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP" class="route-btn route-btn-primary" target="_blank" rel="noopener noreferrer">
+            <span>🚗</span> <span id="gmapsBtnText">ABRIR ROTA NO MAPA</span>
+          </a>
+          <a id="wazeRouteBtn" href="https://waze.com/ul?q=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP" class="route-btn route-btn-secondary" target="_blank" rel="noopener noreferrer">
+            <span>🧭</span> <span id="wazeBtnText">ABRIR NO WAZE</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Rodapé Sutil -->
+      <footer class="site-footer">
+        <p>🎃 Halloween do Anderson 39 Anos • Esperamos você se tiver coragem!</p>
+      </footer>
+
+    </div>
+
+  </main>
+
+  <!-- Legenda Fantasmagórica para Sussurros -->
+  <div id="whisperToast" class="whisper-subtitle-toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts da Aplicação -->
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
