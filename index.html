@@ -171,19 +171,19 @@
         </div>
 
         <div class="map-address-box">
-          <span>📍 <strong>R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP</strong></span>
+          <span>📍 <strong>Espaço Recanto Ruiz</strong> — R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP</span>
           <button id="copyAddressBtn" class="copy-address-btn" type="button" aria-label="Copiar endereço para área de transferência">
             📋 Copiar Endereço
           </button>
         </div>
 
-        <!-- Iframe do Mapa (Google Maps Embed) -->
+        <!-- Iframe do Mapa (Google Maps Embed com Marcador Exato) -->
         <div class="map-iframe-wrapper">
           <iframe 
             id="mapIframe"
             class="map-iframe"
             title="Localização da Festa no Google Maps"
-            src="https://maps.google.com/maps?q=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=-23.5936204,-47.5402406+(Espa%C3%A7o+Recanto+Ruiz)&t=&z=16&ie=UTF8&iwloc=&output=embed"
             loading="lazy"
             allowfullscreen>
           </iframe>
@@ -195,10 +195,10 @@
 
         <!-- Botões de Ação de Rota -->
         <div class="map-action-buttons">
-          <a id="gmapsRouteBtn" href="https://www.google.com/maps/dir/?api=1&destination=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP" class="route-btn route-btn-primary" target="_blank" rel="noopener noreferrer">
+          <a id="gmapsRouteBtn" href="https://maps.app.goo.gl/3F1vXKsnZfaFSxsB6" class="route-btn route-btn-primary" target="_blank" rel="noopener noreferrer">
             <span>🚗</span> <span id="gmapsBtnText">ABRIR ROTA NO MAPA</span>
           </a>
-          <a id="wazeRouteBtn" href="https://waze.com/ul?q=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP" class="route-btn route-btn-secondary" target="_blank" rel="noopener noreferrer">
+          <a id="wazeRouteBtn" href="https://waze.com/ul?ll=-23.5936204,-47.5402406&navigate=yes" class="route-btn route-btn-secondary" target="_blank" rel="noopener noreferrer">
             <span>🧭</span> <span id="wazeBtnText">ABRIR NO WAZE</span>
           </a>
         </div>

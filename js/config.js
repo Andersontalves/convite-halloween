@@ -31,13 +31,22 @@ const HALLOWEEN_CONFIG = {
   // Observação especial do convite (pequeno bilhete amassado)
   observacao: "Obs: Vai ter som e karaoke pra vc se assustar a noite inteira huahuahuahuahuahua",
 
-  // Mapa e Localização
+  // Mapa e Localização Exata (Espaço Recanto Ruiz)
   mapa: {
-    enderecoPesquisa: "R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP",
-    // Link direto do Google Maps para traçar rotas
-    linkGoogleMapsRota: "https://www.google.com/maps/dir/?api=1&destination=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP",
-    // Link Waze alternativo
-    linkWaze: "https://waze.com/ul?q=R.+Pedro+Moreira+C%C3%A9sar,+1+-+Reunidas,+Bela+Vista,+Salto+de+Pirapora+-+SP",
+    nomeLocal: "Espaço Recanto Ruiz",
+    enderecoPesquisa: "Espaço Recanto Ruiz, Salto de Pirapora - SP",
+    coordenadas: {
+      lat: -23.5936204,
+      lng: -47.5402406
+    },
+    // Link direto fornecido no Google Maps
+    linkGoogleMapsExato: "https://maps.app.goo.gl/3F1vXKsnZfaFSxsB6",
+    // Link para traçar rota direta no Google Maps
+    linkGoogleMapsRota: "https://www.google.com/maps/dir/?api=1&destination=-23.5936204,-47.5402406",
+    // Link direto do Waze
+    linkWaze: "https://waze.com/ul?ll=-23.5936204,-47.5402406&navigate=yes",
+    // Iframe embed com o marcador nas coordenadas exatas
+    embedUrl: "https://maps.google.com/maps?q=-23.5936204,-47.5402406+(Espa%C3%A7o+Recanto+Ruiz)&t=&z=16&ie=UTF8&iwloc=&output=embed",
     textoBotaoRota: "ABRIR ROTA NO MAPA",
     textoBotaoWaze: "ABRIR NO WAZE"
   },

@@ -168,11 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
       setText('wazeBtnText', data.mapa.textoBotaoWaze || 'ABRIR NO WAZE');
     }
 
-    // Iframe do Google Maps
+    // Iframe do Google Maps com coordenadas exatas
     const mapIframe = document.getElementById('mapIframe');
-    if (mapIframe && data.mapa?.enderecoPesquisa) {
-      const query = encodeURIComponent(data.mapa.enderecoPesquisa);
-      mapIframe.src = `https://maps.google.com/maps?q=${query}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+    if (mapIframe) {
+      if (data.mapa?.embedUrl) {
+        mapIframe.src = data.mapa.embedUrl;
+      } else if (data.mapa?.enderecoPesquisa) {
+        const query = encodeURIComponent(data.mapa.enderecoPesquisa);
+        mapIframe.src = `https://maps.google.com/maps?q=${query}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+      }
     }
   }
 
