@@ -558,6 +558,144 @@ body {
   text-decoration: underline;
 }
 
+.detail-value.highlight-contrib {
+  color: #15803d;
+  font-weight: 900;
+  font-size: 1.15em;
+}
+
+.highlight-contrib-row {
+  background: rgba(34, 197, 94, 0.08);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+/* ==========================================================================
+   GUIA DE FESTA: PIX & O QUE LEVAR
+   ========================================================================== */
+.party-survival-guide {
+  margin: 22px 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pix-card-box {
+  background: rgba(255, 255, 255, 0.65);
+  border: 2px dashed #991b1b;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pix-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pix-title {
+  font-family: var(--font-title-gothic);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #7f1d1d;
+  letter-spacing: 1px;
+}
+
+.pix-key-badge {
+  font-family: monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1c1917;
+  background: #fef08a;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #facc15;
+  letter-spacing: 1px;
+}
+
+.copy-pix-btn {
+  background: #7f1d1d;
+  color: #ffffff;
+  border: 1px solid #991b1b;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+.copy-pix-btn:hover {
+  background: #991b1b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(153, 27, 27, 0.35);
+}
+
+.pix-instruction {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  color: #44403c;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.what-to-bring-container {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(80, 40, 10, 0.25);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.what-to-bring-title {
+  font-family: var(--font-title-gothic);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #3b0764;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.bring-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.bring-item:last-child {
+  margin-bottom: 0;
+}
+
+.bring-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.bring-content strong {
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  color: #1c1917;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.bring-content p {
+  font-family: var(--font-parchment);
+  font-size: 1.08rem;
+  color: #292524;
+  line-height: 1.4;
+  margin: 0;
+}
+
 /* Seção de Confirmação WhatsApp */
 .whatsapp-rsvp-box {
   margin: 28px 0 24px;

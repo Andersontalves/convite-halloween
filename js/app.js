@@ -77,6 +77,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Evento: Copiar Chave PIX
+  const copyPixBtn = document.getElementById('copyPixBtn');
+  if (copyPixBtn) {
+    copyPixBtn.addEventListener('click', () => {
+      const pixKey = cfg.chavePix || "37757887860";
+      navigator.clipboard.writeText(pixKey).then(() => {
+        const originalHtml = copyPixBtn.innerHTML;
+        copyPixBtn.innerHTML = '<span>✓</span> Chave Copiada!';
+        setTimeout(() => {
+          copyPixBtn.innerHTML = originalHtml;
+        }, 2200);
+      }).catch(() => {
+        alert("Chave PIX: " + pixKey);
+      });
+    });
+  }
+
   /**
    * Sequência cinematográfica de revelação
    */
@@ -143,8 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setText('detailTimeText', data.hora);
     setText('detailLocationText', data.local);
     setText('detailCostumeText', data.traje);
+    setText('detailContribText', data.contribuicao);
     setText('detailDeadlineText', data.prazoConfirmacao);
     setText('detailPhoneText', data.telefoneExibicao);
+    setText('pixKeyText', data.chavePix);
+    if (data.oQueLevar) {
+      setText('bringFoodText', data.oQueLevar.rango);
+      setText('bringDrinkText', data.oQueLevar.bebidas);
+    }
     setText('crumpledNoteText', data.observacao);
 
     // Link do WhatsApp

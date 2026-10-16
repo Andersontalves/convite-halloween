@@ -21,13 +21,22 @@ const HALLOWEEN_CONFIG = {
   local: "R. Pedro Moreira César, 1 - Reunidas, Bela Vista, Salto de Pirapora - SP",
   traje: "A caráter (Fantasia obrigatória!) 🧛‍♂️🧙‍♀️",
   prazoConfirmacao: "28/10",
-  telefoneExibicao: "(15) 99669-6096",
-  
+  // Contribuição e PIX
+  contribuicao: "R$ 30,00 por pessoa",
+  chavePix: "37757887860",
+  instrucaoPix: "Envie o comprovante do PIX pelo WhatsApp até 28/10 para colocar o seu nome na lista!",
+
+  // O que levar
+  oQueLevar: {
+    rango: "Traga a carne em espetinhos (fica bem mais fácil e prático para assar e todo mundo curtir!).",
+    bebidas: "Traga seu cooler abastecido com as bebidas da sua preferência!"
+  },
+
   // WhatsApp para confirmação
   // Formato internacional: código do país (55) + DDD (15) + número (996696096)
   whatsappNumero: "5515996696096",
-  whatsappMensagem: "Olá! Estou entrando em contato sobre a festa de Halloween dos 39 anos do Anderson, no dia 31 de outubro.",
-  textoBotaoWhatsapp: "CONFIRMAR PRESENÇA",
+  whatsappMensagem: "Olá! Segue o comprovante do PIX para confirmar meu nome na lista da festa de Halloween dos 39 anos do Anderson!",
+  textoBotaoWhatsapp: "CONFIRMAR & ENVIAR COMPROVANTE",
 
   // Observação especial do convite (pequeno bilhete amassado)
   observacao: "Obs: Vai ter som e karaoke pra vc se assustar a noite inteira huahuahuahuahuahua",
